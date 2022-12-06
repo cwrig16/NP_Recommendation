@@ -9,7 +9,7 @@ nps_and_features = {
 'Bryce Canyon':set(['backcountry', 'camping', 'desert', 'forest', 'geology', 'hiking']),
 'Canyonlands':set(['backcountry', 'boating', 'camping', 'desert', 'fishing', 'geology', 'hiking', 'water', 'wildlife']),
 'Capitol Reef':set(['backcountry', 'camping', 'geology', 'fishing', 'hiking', 'water']),
-'Carlsbad Caverns':set(['backcountry', 'camping', 'cave', 'hiking']),
+'Carlsbad Caverns':set(['backcountry', 'camping', 'caves', 'hiking']),
 'Channel Islands':set(['boating', 'camping', 'diving', 'water', 'wildlife']),
 'Congaree':set(['boating', 'fishing', 'forest', 'hiking', 'water', 'wildlife']),
 'Crater Lake':set(['backcountry', 'camping', 'fishing', 'forest', 'hiking', 'mountains', 'water', 'volcanoes']),
@@ -24,7 +24,7 @@ nps_and_features = {
 'Glacier Bay':set(['boating', 'fishing', 'forest', 'hiking', 'mountains', 'water', 'wildlife']),
 'Grand Canyon':set(['backcountry', 'boating', 'camping', 'desert', 'fishing', 'geology', 'hiking', 'water', 'wildlife']),
 'Grand Teton':set(['backcountry', 'boating', 'camping', 'cross country skiing', 'fishing', 'forest', 'hiking', 'mountains', 'snowshoeing', 'water', 'wildlife']),
-'Grand Basin':set(['archeology', 'backcountry', 'camping', 'cave', 'desert', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
+'Grand Basin':set(['archeology', 'backcountry', 'camping', 'caves', 'desert', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
 'Great Sand Dunes':set(['camping', 'desert', 'forest', 'hiking', 'sand', 'wildlife']),
 'Great Smokey Mountains':set(['backcountry', 'camping', 'fishing', 'forest', 'hiking', 'mountains']),
 'Guadalupe Mountains':set(['backcountry', 'camping', 'desert', 'geology', 'hiking', 'mountains', 'wildlife']),
@@ -41,27 +41,71 @@ nps_and_features = {
 'Kobuk Valley':set(['backcountry', 'fishing', 'forest', 'hiking', 'mountains', 'wildlife']),
 'Lake Clark':set(['fishing', 'forest', 'hiking', 'mountains', 'water', 'wildlife']),
 'Lassen Volcanic':set(['camping', 'cross country skiiing', 'fishing', 'hiking', 'snowshoeing', 'volcanoes']),
-'Mammoth Cave':set(['boating', 'camping', 'cave', 'fishing', 'forest', 'geology', 'hiking', 'wildlife']),
+'Mammoth Cave':set(['boating', 'camping', 'caves', 'fishing', 'forest', 'geology', 'hiking', 'wildlife']),
 'Mesa Verde':set(['archeology', 'geology', 'hiking', 'wildlife']),
 'Mount Rainier':set(['backcountry', 'camping', 'forest', 'hiking', 'mountains', 'water', 'wildlife']),
 'North Cascades':set(['backcountry', 'camping', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
 'Organ Pipe Cactus':set(['desert', 'hiking', 'wildlife']),
 'Olympic':set(['backcountry', 'boating', 'camping', 'fishing', 'forest', 'hiking', 'mountains', 'sand', 'water', 'wildlife']),
 'Petrified Forest':set(['backcountry', 'desert', 'geology', 'hiking']),
-'Pinnacles':set(['cave', 'hiking', 'mountains', 'water', 'wildlife', 'volcanoes']),
+'Pinnacles':set(['caves', 'hiking', 'mountains', 'water', 'wildlife', 'volcanoes']),
 'Redwood':set(['backcountry', 'fishing', 'forest', 'hiking', 'water', 'wildlife']),
 'Rocky Mountain':set(['backcountry', 'camping', 'fishing', 'forest', 'hiking', 'mountains', 'wildlife']),
 'Saguaro':set(['desert', 'forest', 'hiking', 'wildlife']),
-'Sequoia':set(['cave', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
+'Sequoia':set(['caves', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
 'Shenandoah':set(['backcountry', 'camping', 'fishing', 'forest', 'hiking', 'mountains', 'water', 'wildlife']),
 'Theodore Roosevelt':set(['camping', 'cross country skiing', 'hiking', 'plains', 'wildlife']),
 'Valley Forge':set(['hiking', 'military', 'wildlife']),
 'Virgin Islands':set(['archeology', 'boating', 'desert', 'diving', 'fishing', 'forest', 'hiking', 'sand', 'water', 'wildlife']),
 'Voyageurs':set(['boating', 'camping', 'fishing', 'water']),
-'Wind Cave':set(['backcountry', 'camping', 'cave', 'forest', 'hiking', 'plains', 'wildlife']),
+'Wind Cave':set(['backcountry', 'camping', 'caves', 'forest', 'hiking', 'plains', 'wildlife']),
 'White Sands':set(['backcountry', 'camping', 'desert', 'geology', 'hiking', 'sand', 'wildlife']),
 'Wrangell-St. Elias':set(['backcountry', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
 'Yellowstone':set(['archeology', 'backcountry', 'boating', 'camping', 'cross country skiing', 'fishing', 'forest', 'geology', 'hiking', 'military', 'mountains', 'snowshoeing', 'thermal features', 'water', 'wildlife', 'volcanoes']),
 'Yosemite':set(['camping', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
-'Zion':set(['backcountry', 'camping', 'desert', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
+'Zion':set(['backcountry', 'camping', 'desert', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife'])
 }
+
+features = {
+    'a': 'archeology',
+    'b': 'backcountry',
+    'c': 'boating', 
+    'd': 'camping',
+    'e': 'caves', 
+    'f': 'cross country skiing',
+    'g': 'desert',
+    'h': 'diving',
+    'i': 'fishing',
+    'j': 'forest',
+    'k': 'geology',
+    'l': 'hiking',
+    'm': 'military', 
+    'n': 'mountains',
+    'o': 'plains',
+    'p': 'sand',
+    'q': 'snowshoeing',
+    'r': 'thermal features',
+    's': 'water',
+    't': 'wildlife',
+    'u': 'volcanoes'
+}
+
+feature_string = ''
+for key, value in features.items():
+    feature_string += f'{key} - {value}\n'
+
+def show_features():
+    print(feature_string)
+
+def greet():
+    print('Welcome to National Park Recommendation!!! \nBy selecting a feature of the National Parks, you will be given a list of recommended parks to visit.\n')
+    
+def get_feature():
+    show_features()
+    feature = input('Please select a feature from the preceding list by typing the cooresponding letter.\nYour selection: ')
+
+def np_recommendation():
+    greet()
+    get_feature()
+
+np_recommendation()
