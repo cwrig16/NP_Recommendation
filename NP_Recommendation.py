@@ -24,7 +24,7 @@ nps_and_features = {
 'Glacier Bay':set(['boating', 'fishing', 'forest', 'hiking', 'mountains', 'water', 'wildlife']),
 'Grand Canyon':set(['backcountry', 'boating', 'camping', 'desert', 'fishing', 'geology', 'hiking', 'water', 'wildlife']),
 'Grand Teton':set(['backcountry', 'boating', 'camping', 'cross country skiing', 'fishing', 'forest', 'hiking', 'mountains', 'snowshoeing', 'water', 'wildlife']),
-'Grand Basin':set(['archeology', 'backcountry', 'camping', 'caves', 'desert', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
+'Great Basin':set(['archeology', 'backcountry', 'camping', 'caves', 'desert', 'fishing', 'forest', 'geology', 'hiking', 'mountains', 'water', 'wildlife']),
 'Great Sand Dunes':set(['camping', 'desert', 'forest', 'hiking', 'sand', 'wildlife']),
 'Great Smokey Mountains':set(['backcountry', 'camping', 'fishing', 'forest', 'hiking', 'mountains']),
 'Guadalupe Mountains':set(['backcountry', 'camping', 'desert', 'geology', 'hiking', 'mountains', 'wildlife']),
@@ -99,13 +99,51 @@ def show_features():
 
 def greet():
     print('Welcome to National Park Recommendation!!! \nBy selecting a feature of the National Parks, you will be given a list of recommended parks to visit.\n')
-    
+
+def farewell():
+    print('Thank you for using National Park Recommendation.')
+
+def new_selection():
+    again = input('Would you like to make another selection? (y)es or (n)o: \n')
+    if again.lower() == 'y':
+        reprint = input('Would you like to see available features again? (y)es or (n)o: \n')
+        if reprint.lower() == 'y':
+            show_features()
+            give_recommendation()
+        elif reprint.lower() == 'n':
+            give_recommendation()
+        else:
+            print('Invalid selection.  Please try again.\n')
+            return new_selection()
+    elif again.lower() == 'n':
+        farewell()
+    else:
+        print('Invalid selection.  Please try again.\n')
+        return new_selection()
+
 def get_feature():
-    show_features()
-    feature = input('Please select a feature from the preceding list by typing the cooresponding letter.\nYour selection: ')
+    feature = input('Please select a feature by typing the cooresponding letter.\nYour selection: ')
+    if feature.lower() in features.keys():
+        chosen_feature = features[feature]
+        print(f'\nYou selected {feature} - {chosen_feature}.\n')
+        return chosen_feature
+    else:
+        print('\nInvalid selection.  Please try again.\n')
+        return get_feature()
+
+def give_recommendation():
+    selection = get_feature()
+    recommendation = '\n'
+    for key in nps_and_features.keys():   
+        if selection in nps_and_features[key]:
+            recommendation += f'{key}\n'
+    print(f'Your recommneded National Parks to visit are: \n{recommendation}')
+    new_selection()
 
 def np_recommendation():
     greet()
-    get_feature()
+    show_features()
+    give_recommendation()
+    
 
 np_recommendation()
